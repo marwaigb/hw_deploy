@@ -1,0 +1,4 @@
+node{
+    copyArtifacts filter: '**/*.war', fingerprintArtifacts: true, projectName: 'pipeline-maven', selector: lastSuccessful()
+    deploy adapters: [tomcat9(credentialsId: '75bc72f4-67b4-4426-bb62-e6c736e7bacb', path: '', url: 'http://172.31.45.123:8888/')], contextPath: null, war: '**/*.war'
+}
